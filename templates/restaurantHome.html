@@ -1,0 +1,33 @@
+<html>
+	<body>
+
+	<h1>Restaurant Listing</h1>
+
+	
+		<a href="{{url_for('newRestaurant')}}">Add a New Restaurant</a>
+		
+
+	</br>
+	</br>
+	
+	{% if restaurant_list %}
+	{% for rest in restaurant_list %}
+
+		<h2>{{rest.name}}</h2>
+
+		<a href="{{url_for('editRestaurant', restaurant_id=rest.id)}}">Edit </a>
+		</br>
+		
+		<a href="{{url_for('deleteRestaurant', restaurant_id=rest.id)}}">Delete </a>
+		
+		
+	{% endfor %}
+	
+	{% else %}
+	
+		<p> There are no restaurants currently listed.</p>
+	{% endif %}
+
+	</body>
+
+</html>
