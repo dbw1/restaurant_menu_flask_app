@@ -17,11 +17,15 @@
 		<input type='text' size='30' name='description'>
 
 	<p>Current Item Type: </p> 
-	<p> {{item.course}} </p>
-	<input type="radio" name="course" value="appetizer"> Appetizer</br>
-  	<input type="radio" name="course" value="entree"> Entree</br>
-  	<input type="radio" name="course" value="dessert"> Dessert</br>
-  	<input type="radio" name="course" value="beverage"> Beverage
+	<p> {{active_btns[0]}} </p>
+	
+	{% for button in buttons %}
+	    {% if button in active_btns %}
+	        <input type="radio" checked="checked" name="course" value="{{ button }}">{{ button }}</br>
+	    {% else %}
+	        <input type="radio"  name="course" value="{{ button }}">{{ button }}</br>
+	    {% endif %}
+	{% endfor %}
 	
 	
 	
